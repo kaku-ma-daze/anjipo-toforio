@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>実績詳細｜Shopifyブログ装飾</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --primary: #1a2a6c; --accent: #f2a341; --bg: #f8f9fa; }
+    body { margin: 0; font-family: 'Noto Sans JP', sans-serif; background: var(--bg); line-height: 1.8; }
+    nav { background: #fff; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    nav a { color: var(--primary); text-decoration: none; font-weight: bold; }
+    main { max-width: 800px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    h1 { color: var(--primary); border-left: 8px solid var(--accent); padding-left: 15px; font-size: 1.8rem; }
+    .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
+    .box { padding: 20px; border-radius: 8px; font-size: 0.9rem; }
+    .before { background: #eee; color: #666; }
+    .after { background: #fff6e9; border: 1px solid var(--accent); }
+    .point-list { list-style: none; padding: 20px; background: #f0f4f8; border-radius: 10px; }
+    .point-list li { margin-bottom: 10px; }
+    .point-list li::before { content: "✅ "; }
+    .sample-box { margin-top: 30px; padding: 20px; border: 2px solid var(--primary); position: relative; }
+    .sample-title { position: absolute; top: -14px; left: 15px; background: #fff; padding: 0 10px; font-weight: bold; color: var(--primary); }
+    @media (max-width: 600px) { .comparison { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav><a href="index.html">← ポートフォリオTOPへ戻る</a></nav>
+<main>
+  <h1>Shopifyブログ記事の装飾カスタマイズ</h1>
+  <p>「文章は書いているのに最後まで読まれない」という課題をCSSのみで改善した事例です。</p>
+  <div class="comparison">
+    <div class="box before"><strong>Before</strong><br>文字が単調に並び、重要な情報が埋もれてしまう状態。</div>
+    <div class="box after"><strong>After</strong><br>見出し・囲み枠・余白を最適化し、視線誘導を強化。</div>
+  </div>
+  <h3>実装内容</h3>
+  <ul class="point-list">
+    <li>H2・H3見出しにアクセント装飾を追加</li>
+    <li>重要箇所をアイコン付きボックスで強調</li>
+    <li>スマホ表示を考慮した余白設計</li>
+  </ul>
+  <h3>大切にしている視点</h3>
+  <div class="sample-box">
+    <div class="sample-title">ユーザーファースト</div>
+    単にサイトを装飾するだけでなく、「読み手がどう感じるか」を最優先に設計します。不動産実務で物件の魅力を分かりやすく伝えるように、記事の重要なポイントが瞬時に伝わるデザインを追求しています。
+  </div>
+</main>
+</body>
+</html>

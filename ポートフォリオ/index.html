@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANJI KAKUMA | 不動産実務×Web制作</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a2a6c;
+      --accent: #f2a341;
+      --bg: #f8f9fa;
+    }
+    body { margin: 0; font-family: 'Noto Sans JP', sans-serif; color: #333; background: var(--bg); line-height: 1.8; }
+    
+    header {
+      background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #f2a341, #2a4893);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      color: #fff; padding: 120px 20px; text-align: center;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    header h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; letter-spacing: 5px; margin: 0; }
+    header p { margin-top: 20px; font-size: 1.2rem; font-weight: bold; opacity: 0.95; }
+
+    main { max-width: 1000px; margin: -40px auto 80px; padding: 0 20px; }
+    section { background: #fff; padding: 50px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); margin-bottom: 40px; }
+    h2 { text-align: center; color: var(--primary); margin-bottom: 40px; position: relative; }
+    h2::after { content: ""; display: block; width: 50px; height: 3px; background: var(--accent); margin: 15px auto 0; }
+    
+    .strengths { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; text-align: center; }
+    .strengths h3 { color: var(--accent); margin-bottom: 10px; }
+    
+    .work-card { display: block; padding: 40px; border-radius: 15px; border: 1px solid #eee; color: inherit; text-decoration: none; transition: 0.4s; background: #fff; }
+    .work-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.15); border-color: var(--accent); }
+    .tag { display: inline-block; background: var(--primary); color: #fff; padding: 4px 12px; font-size: 0.8rem; border-radius: 4px; margin-right: 5px; }
+    .link-text { margin-top: 20px; font-weight: bold; color: var(--accent); }
+    
+    .cta { text-align: center; margin-top: 60px; }
+    .btn { display: inline-block; background: var(--accent); color: #fff; padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 5px 15px rgba(242, 163, 65, 0.4); }
+    .btn:hover { background: #e68a00; transform: scale(1.05); }
+    
+    footer { text-align: center; font-size: 0.9rem; color: #777; margin-bottom: 40px; }
+
+    /* --- ハンバーガーメニュー設定 --- */
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .menu-btn span, .menu-btn span::before, .menu-btn span::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 25px;
+      background: #fff;
+      position: absolute;
+      transition: 0.3s;
+    }
+    .menu-btn span::before { top: -8px; }
+    .menu-btn span::after { top: 8px; }
+    
+    .menu-btn.open span { background: transparent; }
+    .menu-btn.open span::before { top: 0; transform: rotate(45deg); }
+    .menu-btn.open span::after { top: 0; transform: rotate(-45deg); }
+
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(26, 42, 108, 0.98);
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(100%);
+      transition: 0.4s ease-in-out;
+    }
+    .nav-overlay.open { transform: translateX(0); }
+    .nav-overlay ul { list-style: none; padding: 0; text-align: center; }
+    .nav-overlay ul li { margin: 25px 0; }
+    .nav-overlay ul li a { color: #fff; text-decoration: none; font-size: 1.8rem; font-weight: bold; font-family: 'Montserrat', sans-serif; }
+
+    @media (max-width: 600px) { header h1 { font-size: 2.2rem; } section { padding: 30px 20px; } }
+  </style>
+</head>
+<body>
+
+<div class="menu-btn" id="js-btn"><span></span></div>
+
+<nav class="nav-overlay" id="js-nav">
+  <ul>
+    <li><a href="#">HOME</a></li>
+    <li><a href="#why-me">WHY ME?</a></li>
+    <li><a href="#works">WORKS</a></li>
+    <li><a href="https://crowdworks.jp/public/employees/6112571">PROFILE</a></li>
+  </ul>
+</nav>
+
+<header>
+  <h1>ANJI KAKUMA</h1>
+  <p>不動産実務4年の「確実性」× 成果を出すWeb制作</p>
+</header>
+
+<main>
+  <section id="why-me">
+    <h2>WHY ME?</h2>
+    <div class="strengths">
+      <div>
+        <h3>不動産実務4年</h3>
+        <p>正確性と信頼性が求められる現場で培った、情報整理力と誠実な対応。</p>
+      </div>
+      <div>
+        <h3>即レス・即対応</h3>
+        <p>24時間以内の返信を徹底。スピード感を持ってプロジェクトを支えます。</p>
+      </div>
+      <div>
+        <h3>ユーザー視点設計</h3>
+        <p>「読み手がどこで判断するか」を考え抜いた構成をご提案します。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <h2>WORKS</h2>
+    <a href="work-detail.html" class="work-card">
+      <span class="tag">Shopify</span> <span class="tag">CSS</span>
+      <h3>Shopifyブログ装飾カスタマイズ</h3>
+      <p>標準機能では伝わりにくい情報を、CSSのみで見やすく改善した事例です。</p>
+      <div class="link-text">制作の裏側を見る</div>
+    </a>
+  </section>
+
+  <div class="cta">
+    <a href="https://crowdworks.jp/public/employees/6112571/messages/new" class="btn">無料で相談する｜制作可否だけでもOK</a>
+  </div>
+</main>
+
+<footer>© ANJI KAKUMA Portfolio</footer>
+
+<script>
+  const btn = document.getElementById('js-btn');
+  const nav = document.getElementById('js-nav');
+  const links = document.querySelectorAll('.nav-overlay a');
+
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    nav.classList.toggle('open');
+  });
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      btn.classList.remove('open');
+      nav.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
